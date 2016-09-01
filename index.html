@@ -26,6 +26,34 @@
             <div class="col-md-6"><button type="button" class="btn btn-success">NEW</button></div>
         </div>
         <div class="row">
+            <div class="col-md-6"><button type="button" class="btn btn-success">ADD</button></div>
+            <div class="col-md-6"><button type="button" class="btn btn-warning">CANCEL</button></div>
+        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>DATE</p>
+                    </div>
+                <div class="col-md-6">
+                    <input type="text" name="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>TIME</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="time">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>DESCRIPTION</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="description">
+                </div>
+            </div>
+        <div class="row">
             <div class="col-md-6"><input type="text" name="search"></div>
             <div class="col-md-6"><button type="button" class="btn btn-primary">Search</button></div>
         </div>
@@ -46,10 +74,20 @@
             height: 38px;
         }
     </style>
-    <script>
-
-    </script>
     <script src="js/jquery-3.1.0.min.js?v=1"></script>
     <script src="js/bootstrap.min.js?v=1"></script>
+    <script>
+        var page = {};
+        $(function() {
+            page.results = {};
+            page.updateResults = function(){
+
+            };
+            page.getAppointments = function(search){
+                console.log(page);
+            };
+            page.getAppointments();
+        });
+    </script>
 </body>
 </html>
