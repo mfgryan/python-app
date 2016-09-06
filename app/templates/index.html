@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>web app</title>
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container" style="margin-top: 300px;">
+        <form method="get">
+        <div class="row">
+            <div class="col-md-6"><button type="button" class="btn btn-success" id="new">NEW</button></div>
+        </div>
+        <div id="newRecord">
+            <div class="row">
+                <div class="col-md-6"><button type="submit" class="btn btn-success">ADD</button></div>
+                <div class="col-md-6"><button type="button" class="btn btn-warning" id="cancel">CANCEL</button></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>DATE</p>
+                    </div>
+                <div class="col-md-6">
+                    <input type="text" name="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>TIME</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="time">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>DESCRIPTION</p>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="description">
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class="row">
+            <div class="col-md-6"><input type="text" name="search"></div>
+            <div class="col-md-6"><button type="button" id="searchButton" class="btn btn-primary">Search</button></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"><h2>Appointments</h2></div>
+            <table id="apts" class="table table-striped">
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <style>
+        .row {
+            margin: 25px auto;
+            width: 500px;
+        }
+        input[type="text"]  {
+            height: 38px;
+        }
+        #newRecord {
+            display: none;
+        }
+    </style>
+    <script src="{{ url_for('static', filename='js/jquery-3.1.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script>
+        var page = {};
+        $(function() {
+            page.buildTable = function(){
+                var cols = '';
+                for(var i = 0; i < page.result.headers.length; i++){
+                    cols = cols + '<th>'+page.result.headers[i]+'</th>';
+                }
+                var rows = '';
+                for(var j = 0; j < page.result.data.length;j++){
+                    rows = rows +'<tr>'+
+                    '<td>'+ page.result.data[j].date +'</td>'+
+                    '<td>'+ page.result.data[j].time +'</td>'+
+                    '<td>'+ page.result.data[j].description +'</td>'+
+                    '</tr>';
+                }
+                $('#apts thead').html('<tr>'+cols+'</tr>');
+                $('#apts tbody').html(rows);
+            }
+            page.updateResults = function(response){
+                console.log("success! updating now");
+                console.log(response);
+                page.result = response;
+                page.buildTable();
+            };
+            page.getAppointments = function(data){
+                var opts = {
+                    url: "http://localhost:5000/api",
+                    dataType: "json",
+                    error: function(jqXHR, textStatus, errorThrown){ console.log(jqXHR); },
+                    method: 'GET',
+                    success: function(response){ page.updateResults(response); }
+                };
+                if(typeof data !== 'undefined') opts.data = data;
+                $.ajax(opts);
+            };
+            $('#new').click(function(){
+                $('#newRecord').show();
+                $('#new').hide();
+            });
+            $('#cancel').click(function(){
+                $('#newRecord').hide();
+                $('#new').show();
+            });
+            $('#searchButton').click(function(){
+                page.getAppointments({search: $("[name='search']").val()});
+            });
+            page.getAppointments();
+        });
+    </script>
+</body>
+</html>
