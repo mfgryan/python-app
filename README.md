@@ -5,16 +5,16 @@ to read and create appointments
 
 ## Installation
 
-repository: https://github.com/mfgryan/webapp.git
-This project is configured to run on a linux environment and may not work on windows (was built with ubuntu 14.04)
-This project uses a virtual env for python 
-See flask folder for installed modules / packages and python version 
-See requirements.txt for list of python requirements
+1. use repository: https://github.com/mfgryan/webapp.git
+2. This project is configured to run on a linux environment and may not work on windows (was built with ubuntu 14.04)
+3. This project uses a virtual env for python make sure your dependencies are installed locally- webapp/flask/lib/python2.7 
+4. See flask/lib/python2.7 folder for installed modules / packages. flask/bin for python version 
+5. See requirements.txt for list of python requirements.
 
 ## How to run
 
-to start application execute run.py
-it is configured to run on localhost with a port of 5000
+To start application execute run.py
+It is configured to run on localhost with a port of 5000
 
 ## app
 
