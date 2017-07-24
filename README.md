@@ -1,7 +1,7 @@
 # Python Flask demo
 
-A simple single page web demo that allows creating and reading appointments.
-This app uses [python](https://docs.python.org/3/) and [flask](http://flask.pocoo.org/)
+A simple single page demo for creating and reading appointments.
+The demo uses [python](https://docs.python.org/3/) and [flask](http://flask.pocoo.org/)
 
 ## Set up
 
