@@ -1,22 +1,26 @@
-# Python web app
+# Python Flask demo
 
-This is a simple single page web application that allows a user
-to read and create appointments
+A simple single page web demo that allows creating and reading appointments.
+This app uses [python](https://docs.python.org/3/) and [flask](http://flask.pocoo.org/)
 
-## Installation
+## Set up
 
-1. use repository: https://github.com/mfgryan/webapp.git
-2. This project is configured to run on a linux environment and may not work on windows (was built with ubuntu 14.04)
-3. This project uses a virtual env for python make sure your dependencies are installed locally- webapp/flask/lib/python2.7 
-4. See flask/lib/python2.7 folder for installed modules / packages. flask/bin for python version 
-5. See requirements.txt for list of python requirements.
+1. Repository: https://github.com/mfgryan/webapp.git
+3. Activate virtual env: source **`flask/bin/activate`**
+4. Install local requirements **`pip install -r requirements.txt`**
+5. **`./run.py`**
 
-## How to run
+## App details
 
-To start application execute run.py
-It is configured to run on localhost with a port of 5000
+See **`app/views.py`** for serverside logic.
+See **`app/templates/index.html`** for index page.
 
-## app
+## Questions?
 
-See app/views.py for serverside logic
-See app/templates/index.html for index page
+  #### Contact
+  - email [henao@henserver.com](http://www.henserver.com)
+  - linkedin [linkedin.com/in/ryan-henao-4173917b](https://www.linkedin.com/in/ryan-henao-4173917b/)
+  - website [henserver](http://www.henserver.com)
+
+  #### Author
+  Ryan Henao
