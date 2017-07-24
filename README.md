@@ -15,7 +15,7 @@ Repository: [https://github.com/mfgryan/webapp.git](https://github.com/mfgryan/w
 ## App details
 
 ```sh
-  See app/views.py for serverside logic and app/templates/index.html for index page.
+  cd app/views.py serverside logic and cd app/templates/index.html index page.
 ```
 
 ## Questions?
