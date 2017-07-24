@@ -7,15 +7,15 @@ The demo uses [python](https://docs.python.org/3/) and [flask](http://flask.poco
 
 Repository: [https://github.com/mfgryan/webapp.git](https://github.com/mfgryan/webapp.git)
 ```sh
-1. Activate virtual env: **`source flask/bin/activate`**
-2. Install local requirements: **`pip install -r requirements.txt`**
-3. **`./run.py`**
+1. source flask/bin/activate
+2. pip install -r requirements.txt
+3. ./run.py
 ```
 
 ## App details
 
 ```sh
-  See **`app/views.py`** for serverside logic and **`app/templates/index.html`** for index page.
+  See app/views.py for serverside logic and app/templates/index.html for index page.
 ```
 
 ## Questions?
